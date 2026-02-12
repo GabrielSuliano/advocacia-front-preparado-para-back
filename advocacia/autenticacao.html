@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Advocacia Premium</title>
+    <link rel="stylesheet" href="estilos/autenticacao.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- HEADER SIMPLIFICADO -->
+    <header class="header-auth">
+        <div class="container">
+            <div class="logo-auth" onclick="redirecionarParaHome()">
+                <div class="logo-icon">
+                    <i data-lucide="scale"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Advocacia Premium</h1>
+                    <p>Excelência Jurídica</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTAINER PRINCIPAL DE AUTENTICAÇÃO -->
+    <main class="auth-container">
+        <div class="auth-box">
+            <!-- ABAS DE LOGIN E CADASTRO -->
+            <div class="auth-tabs">
+                <button class="aba-tab aba-ativa" onclick="mudarAba('login')">
+                    <i data-lucide="log-in"></i>
+                    Login
+                </button>
+                <button class="aba-tab" onclick="mudarAba('cadastro')">
+                    <i data-lucide="user-plus"></i>
+                    Cadastro
+                </button>
+            </div>
+
+            <!-- FORMULÁRIO DE LOGIN -->
+            <div id="login" class="aba-conteudo aba-ativa">
+                <h2>Bem-vindo de Volta</h2>
+                <p class="aba-descricao">Acesse sua conta para gerenciar seus casos e documentos</p>
+
+                <form id="formLogin" class="formulario-auth">
+                    <div class="form-group">
+                        <label for="emailLogin">E-mail</label>
+                        <div class="input-com-icone">
+                            <i data-lucide="mail"></i>
+                            <input 
+                                type="email" 
+                                id="emailLogin" 
+                                name="email" 
+                                placeholder="seu@email.com" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senhaLogin">Senha</label>
+                        <div class="input-com-icone">
+                            <i data-lucide="lock"></i>
+                            <input 
+                                type="password" 
+                                id="senhaLogin" 
+                                name="senha" 
+                                placeholder="Digite sua senha" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-opcoes">
+                        <label class="checkbox-customizado">
+                            <input type="checkbox" name="lembrar">
+                            <span>Lembrar-me nesta máquina</span>
+                        </label>
+                        <a href="#" class="link-esqueceu">Esqueceu a senha?</a>
+                    </div>
+
+                    <button type="submit" class="botao-enviar-auth">
+                        <i data-lucide="log-in"></i>
+                        Entrar
+                    </button>
+                </form>
+
+                <p class="texto-alternativo">
+                    Não tem conta? <a href="#" onclick="mudarAba('cadastro')">Crie uma agora</a>
+                </p>
+            </div>
+
+            <!-- FORMULÁRIO DE CADASTRO -->
+            <div id="cadastro" class="aba-conteudo">
+                <h2>Criar Conta</h2>
+                <p class="aba-descricao">Crie sua conta para começar a utilizar nossos serviços</p>
+
+                <form id="formCadastro" class="formulario-auth">
+                    <div class="form-group">
+                        <label for="nomeCompleto">Nome Completo</label>
+                        <div class="input-com-icone">
+                            <i data-lucide="user"></i>
+                            <input 
+                                type="text" 
+                                id="nomeCompleto" 
+                                name="nomeCompleto" 
+                                placeholder="Seu nome completo" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emailCadastro">E-mail</label>
+                        <div class="input-com-icone">
+                            <i data-lucide="mail"></i>
+                            <input 
+                                type="email" 
+                                id="emailCadastro" 
+                                name="email" 
+                                placeholder="seu@email.com" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cpfCadastro">CPF</label>
+                        <div class="input-com-icone">
+                            <i data-lucide="id-card"></i>
+                            <input 
+                                type="text" 
+                                id="cpfCadastro" 
+                                name="cpf" 
+                                placeholder="000.000.000-00" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefoneCadastro">Telefone</label>
+                        <div class="input-com-icone">
+                            <i data-lucide="phone"></i>
+                            <input 
+                                type="tel" 
+                                id="telefoneCadastro" 
+                                name="telefone" 
+                                placeholder="(11) 9999-9999" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senhaCadastro">Senha</label>
+                        <div class="input-com-icone">
+                            <i data-lucide="lock"></i>
+                            <input 
+                                type="password" 
+                                id="senhaCadastro" 
+                                name="senha" 
+                                placeholder="Crie uma senha forte" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmaSenha">Confirmar Senha</label>
+                        <div class="input-com-icone">
+                            <i data-lucide="lock"></i>
+                            <input 
+                                type="password" 
+                                id="confirmaSenha" 
+                                name="confirmaSenha" 
+                                placeholder="Confirme sua senha" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <label class="checkbox-customizado">
+                        <input type="checkbox" name="termos" required>
+                        <span>Concordo com os <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a></span>
+                    </label>
+
+                    <button type="submit" class="botao-enviar-auth">
+                        <i data-lucide="user-plus"></i>
+                        Criar Conta
+                    </button>
+                </form>
+
+                <p class="texto-alternativo">
+                    Já tem conta? <a href="#" onclick="mudarAba('login')">Entre aqui</a>
+                </p>
+            </div>
+
+            <!-- MENSAGEM DE ERRO/SUCESSO -->
+            <div id="mensagemAuth" class="mensagem-auth"></div>
+        </div>
+
+        <!-- LADO DIREITO COM INFORMAÇÕES -->
+        <div class="auth-info">
+            <div class="info-card-auth">
+                <div class="info-icon-auth">
+                    <i data-lucide="shield-check"></i>
+                </div>
+                <h3>Seguro e Confiável</h3>
+                <p>Seus dados são protegidos com criptografia de ponta</p>
+            </div>
+
+            <div class="info-card-auth">
+                <div class="info-icon-auth">
+                    <i data-lucide="zap"></i>
+                </div>
+                <h3>Rápido e Fácil</h3>
+                <p>Crie sua conta em apenas alguns segundos</p>
+            </div>
+
+            <div class="info-card-auth">
+                <div class="info-icon-auth">
+                    <i data-lucide="headphones"></i>
+                </div>
+                <h3>Suporte 24/7</h3>
+                <p>Estamos aqui para ajudar quando você precisar</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- RODAPÉ SIMPLIFICADO -->
+    <footer class="footer-auth">
+        <p>&copy; 2026 Advocacia Premium. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="scripts/api-local.js"></script>
+    <script src="scripts/autenticacao.js"></script>
+</body>
+</html>
+
+

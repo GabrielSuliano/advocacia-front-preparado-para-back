@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Advocacia Premium</title>
+    <link rel="stylesheet" href="estilos/faq.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- CABEÇALHO -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" onclick="window.location.href='index.html'">
+                    <div class="logo-icon">
+                        <i data-lucide="scale"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Advocacia Premium</h1>
+                        <p>Excelência Jurídica</p>
+                    </div>
+                </div>
+
+                <nav class="nav-desktop">
+                    <button onclick="window.location.href='index.html'">Início</button>
+                    <button onclick="window.location.href='sobre-empresa.html'">Sobre</button>
+                    <button onclick="window.location.href='index.html#areas'">Áreas de Atuação</button>
+                    <button onclick="window.location.href='index.html#equipe'">Equipe</button>
+                    <button onclick="window.location.href='index.html#contato'" class="btn-contato">Contato</button>
+                </nav>
+
+                <button class="menu-mobile-btn" onclick="toggleMenuMobile()">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                    <i data-lucide="x" id="close-icon" style="display: none;"></i>
+                </button>
+            </div>
+
+            <div class="nav-mobile" id="nav-mobile">
+                <button onclick="window.location.href='index.html'">Início</button>
+                <button onclick="window.location.href='sobre-empresa.html'">Sobre</button>
+                <button onclick="window.location.href='index.html#areas'">Áreas de Atuação</button>
+                <button onclick="window.location.href='index.html#equipe'">Equipe</button>
+                <button onclick="window.location.href='index.html#contato'" class="btn-contato-mobile">Contato</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" style="height: 50vh;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Dúvidas Frequentes
+                <span class="hero-subtitle">Encontre Respostas Aqui</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <section class="container" style="padding: 80px 0;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h2 style="font-size: 2rem; text-align: center; margin-bottom: 60px;">Perguntas Frequentes</h2>
+
+            <div class="faq-container">
+                <!-- PERGUNTA 1 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta" onclick="abrirFaq(this)">
+                        <span>Como agendar uma consulta inicial?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Você pode agendar uma consulta por telefone (11) 3456-7890, pelo nosso site preenchendo o formulário de contato, ou através de um e-mail para contato@advocaciapremium.com.br. A primeira consulta é gratuita!</p>
+                    </div>
+                </div>
+
+                <!-- PERGUNTA 2 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta" onclick="abrirFaq(this)">
+                        <span>Qual é o custo dos serviços jurídicos?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Os valores variam conforme a complexidade do caso e o tipo de serviço. Oferecemos pacotes personalizados e diferentes formas de pagamento (honorários fixos, por hora ou por resultado). Tudo é discutido na primeira consulta.</p>
+                    </div>
+                </div>
+
+                <!-- PERGUNTA 3 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta" onclick="abrirFaq(this)">
+                        <span>Vocês trabalham com qual tipo de cliente?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Trabalhamos com pessoas físicas e jurídicas de todos os tamanhos. Possuímos expertise em atender desde profissionais liberais até grandes empresas, em diversos ramos de atividade.</p>
+                    </div>
+                </div>
+
+                <!-- PERGUNTA 4 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta" onclick="abrirFaq(this)">
+                        <span>Qual é o sigilo profissional?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>O sigilo profissional é absolutamente garantido e protegido por lei. Todas as informações compartilhadas conosco são confidenciais e não serão divulgadas a terceiros sem autorização expressa.</p>
+                    </div>
+                </div>
+
+                <!-- PERGUNTA 5 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta" onclick="abrirFaq(this)">
+                        <span>Oferecem serviços de consultoria preventiva?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Sim! Oferecemos consultoria jurídica preventiva para ajudar a evitar problemas futuros. Avaliamos seus processos, contratos e estrutura para identificar riscos e propor soluções.</p>
+                    </div>
+                </div>
+
+                <!-- PERGUNTA 6 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta" onclick="abrirFaq(this)">
+                        <span>Qual é o prazo para resolução de um caso?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>O prazo varia bastante conforme o tipo de caso, jurisdição e complexidade. Alguns casos se resolvem em semanas, outros em meses ou anos. Faremos uma avaliação realista na primeira consulta.</p>
+                    </div>
+                </div>
+
+                <!-- PERGUNTA 7 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta" onclick="abrirFaq(this)">
+                        <span>Como acompanho o andamento do meu caso?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Você terá acesso a um painel online onde pode acompanhar em tempo real todos os movimentos do seu processo. Além disso, mantemos contato regular por telefone e e-mail com atualizações periódicas.</p>
+                    </div>
+                </div>
+
+                <!-- PERGUNTA 8 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta" onclick="abrirFaq(this)">
+                        <span>Vocês oferecem atendimento remoto?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Sim! Oferecemos atendimento remoto por videoconferência, telefone e e-mail. Você pode se consultar conosco de qualquer lugar do país ou do mundo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <i data-lucide="scale"></i>
+                        </div>
+                        <div>
+                            <h3>Advocacia Premium</h3>
+                            <p>Excelência Jurídica</p>
+                        </div>
+                    </div>
+                    <p class="footer-desc">Defendendo seus direitos com dedicação e competência.</p>
+                    <div class="footer-social">
+                        <button><i data-lucide="facebook"></i></button>
+                        <button><i data-lucide="instagram"></i></button>
+                        <button><i data-lucide="linkedin"></i></button>
+                        <button><i data-lucide="twitter"></i></button>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre-empresa.html">Sobre</a></li>
+                        <li><a href="index.html#areas">Áreas de Atuação</a></li>
+                        <li><a href="index.html#equipe">Equipe</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="politica-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="termos-uso.html">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul class="footer-contato">
+                        <li>Av. Paulista, 1500</li>
+                        <li>São Paulo - SP</li>
+                        <li>(11) 3456-7890</li>
+                        <li>contato@advocaciapremium.com.br</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Advocacia Premium. Todos os direitos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="politica-privacidade.html">Política de Privacidade</a>
+                    <a href="termos-uso.html">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+    <script>
+        /**
+         * Função para abrir/fechar itens FAQ
+         */
+        function abrirFaq(botao) {
+            const item = botao.parentElement;
+            const resposta = item.querySelector('.faq-resposta');
+            const icone = botao.querySelector('i');
+
+            // Fechar todos os outros itens
+            document.querySelectorAll('.faq-item').forEach(elemento => {
+                if (elemento !== item) {
+                    elemento.classList.remove('ativo');
+                    elemento.querySelector('.faq-resposta').style.maxHeight = '0';
+                }
+            });
+
+            // Alternar item atual
+            item.classList.toggle('ativo');
+            
+            if (item.classList.contains('ativo')) {
+                resposta.style.maxHeight = resposta.scrollHeight + 'px';
+            } else {
+                resposta.style.maxHeight = '0';
+            }
+        }
+
+        // Reinicializar ícones ao carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
+
+

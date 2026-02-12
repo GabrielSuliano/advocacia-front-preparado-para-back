@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Advocacia Premium</title>
+    <link rel="stylesheet" href="estilos/painel-controle.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="body-dashboard">
+    <!-- HEADER DO DASHBOARD -->
+    <header class="header-dashboard">
+        <div class="header-dashboard-conteudo">
+            <div class="logo-dashboard" onclick="redirecionarParaHome()">
+                <div class="logo-icon">
+                    <i data-lucide="scale"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Advocacia Premium</h1>
+                </div>
+            </div>
+
+            <div class="header-dashboard-direita">
+                <div class="buscador-dashboard">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Buscar casos, clientes...">
+                </div>
+
+                <div class="notificacoes-dashboard">
+                    <button class="botao-notificacoes" onclick="abrirNotificacoes()">
+                        <i data-lucide="bell"></i>
+                        <span class="badge-notificacoes">3</span>
+                    </button>
+                </div>
+
+                <div class="perfil-usuario">
+                    <div class="avatar-usuario">
+                        <img id="fotoPerfilDash" src="https://images.unsplash.com/photo-1738149891552-fa47bdb34a11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGF2YXRhciUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3Njk3NTEzOTZ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Usuário">
+                    </div>
+                    <div class="info-usuario-header">
+                        <p class="nome-usuario" id="nomeUsuarioDash">Carregando...</p>
+                        <p class="tipo-usuario">Advogado(a)</p>
+                    </div>
+                    <button class="botao-menu-usuario" onclick="abrirMenuUsuario()">
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+
+                    <!-- MENU DROPDOWN DO USUÁRIO -->
+                    <div id="menuDropdownUsuario" class="menu-dropdown-usuario">
+                        <a href="#" onclick="abrirPerfil()">
+                            <i data-lucide="user"></i>
+                            Meu Perfil
+                        </a>
+                        <a href="#" onclick="abrirConfiguracoes()">
+                            <i data-lucide="settings"></i>
+                            Configurações
+                        </a>
+                        <a href="#" onclick="abrirAjuda()">
+                            <i data-lucide="help-circle"></i>
+                            Ajuda
+                        </a>
+                        <hr>
+                        <a href="#" onclick="fazerLogout()" class="sair">
+                            <i data-lucide="log-out"></i>
+                            Sair
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- MENU LATERAL -->
+        <aside class="sidebar-dashboard">
+            <nav class="nav-sidebar">
+                <button class="item-nav" onclick="mudarAbaConsole('inicio')" id="btnInicio">
+                    <i data-lucide="home"></i>
+                    <span>Início</span>
+                </button>
+
+                <button class="item-nav" onclick="mudarAbaConsole('casos')" id="btnCasos">
+                    <i data-lucide="briefcase"></i>
+                    <span>Meus Casos</span>
+                    <span class="badge">5</span>
+                </button>
+
+                <button class="item-nav" onclick="mudarAbaConsole('clientes')" id="btnClientes">
+                    <i data-lucide="users"></i>
+                    <span>Clientes</span>
+                </button>
+
+                <button class="item-nav" onclick="mudarAbaConsole('documentos')" id="btnDocumentos">
+                    <i data-lucide="file-text"></i>
+                    <span>Documentos</span>
+                </button>
+
+                <button class="item-nav" onclick="mudarAbaConsole('agenda')" id="btnAgenda">
+                    <i data-lucide="calendar"></i>
+                    <span>Agenda</span>
+                </button>
+
+                <button class="item-nav" onclick="mudarAbaConsole('relatorios')" id="btnRelatorios">
+                    <i data-lucide="bar-chart-2"></i>
+                    <span>Relatórios</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="botao-logout" onclick="fazerLogout()">
+                    <i data-lucide="log-out"></i>
+                    Sair
+                </button>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="conteudo-dashboard">
+            <!-- SEÇÃO: INÍCIO -->
+            <section id="abaInicio" class="aba-dashboard aba-ativa">
+                <div class="secao-titulo">
+                    <h2>Bem-vindo de Volta, <span id="nomeUsuario">Carregando...</span>!</h2>
+                    <p id="mensagemSaudacao">Você tem 3 casos em andamento</p>
+                </div>
+
+                <!-- CARDS DE RESUMO -->
+                <div class="grid-resumo">
+                    <div class="card-resumo">
+                        <div class="icon-resumo">
+                            <i data-lucide="briefcase"></i>
+                        </div>
+                        <div class="conteudo-resumo">
+                            <p class="label-resumo">Casos em Andamento</p>
+                            <p class="numero-resumo" id="casosAndamento">0</p>
+                        </div>
+                    </div>
+
+                    <div class="card-resumo">
+                        <div class="icon-resumo">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <div class="conteudo-resumo">
+                            <p class="label-resumo">Clientes Ativos</p>
+                            <p class="numero-resumo" id="clientesAtivos">0</p>
+                        </div>
+                    </div>
+
+                    <div class="card-resumo">
+                        <div class="icon-resumo">
+                            <i data-lucide="check-circle"></i>
+                        </div>
+                        <div class="conteudo-resumo">
+                            <p class="label-resumo">Casos Finalizados</p>
+                            <p class="numero-resumo" id="casosFinalizados">0</p>
+                        </div>
+                    </div>
+
+                    <div class="card-resumo">
+                        <div class="icon-resumo">
+                            <i data-lucide="calendar"></i>
+                        </div>
+                        <div class="conteudo-resumo">
+                            <p class="label-resumo">Audiências Próximas</p>
+                            <p class="numero-resumo" id="audienciasSemana">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CASOS RECENTES -->
+                <div class="secao-recente">
+                    <div class="titulo-secao">
+                        <h3>Casos Recentes</h3>
+                        <a href="#" onclick="mudarAbaConsole('casos')" class="link-ver-todos">Ver todos</a>
+                    </div>
+                    <div id="casosRecentesContainer" class="tabela-casos-compacta">
+                        <!-- Carregado dinamicamente -->
+                    </div>
+                </div>
+
+                <!-- PRÓXIMAS AUDIÊNCIAS -->
+                <div class="secao-recente">
+                    <div class="titulo-secao">
+                        <h3>Próximas Audiências</h3>
+                        <a href="#" onclick="mudarAbaConsole('agenda')" class="link-ver-todos">Ver agenda</a>
+                    </div>
+                    <div id="audienciasContainer" class="tabela-audiencias">
+                        <!-- Carregado dinamicamente -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEÇÃO: MEUS CASOS -->
+            <section id="abaCasos" class="aba-dashboard">
+                <div class="secao-titulo">
+                    <h2>Meus Casos</h2>
+                    <button class="botao-novo-caso" onclick="abrirNovoCase()">
+                        <i data-lucide="plus"></i>
+                        Novo Caso
+                    </button>
+                </div>
+
+                <!-- FILTROS -->
+                <div class="filtros-dashboard">
+                    <div class="grupo-filtro">
+                        <label>Status</label>
+                        <select id="filtroStatus" onchange="aplicarFiltros()">
+                            <option value="">Todos</option>
+                            <option value="andamento">Em Andamento</option>
+                            <option value="pendente">Pendente</option>
+                            <option value="pausado">Pausado</option>
+                            <option value="finalizado">Finalizado</option>
+                        </select>
+                    </div>
+                    <div class="grupo-filtro">
+                        <label>Área de Atuação</label>
+                        <select id="filtroArea" onchange="aplicarFiltros()">
+                            <option value="">Todas</option>
+                            <option value="trabalhista">Trabalhista</option>
+                            <option value="imobiliario">Imobiliário</option>
+                            <option value="familia">Família</option>
+                            <option value="empresarial">Empresarial</option>
+                            <option value="civil">Civil</option>
+                            <option value="tributario">Tributário</option>
+                        </select>
+                    </div>
+                    <div class="grupo-filtro">
+                        <label>Cliente</label>
+                        <input type="text" id="filtroCliente" placeholder="Buscar cliente..." onkeyup="aplicarFiltros()">
+                    </div>
+                </div>
+
+                <!-- TABELA DE CASOS -->
+                <div id="tabelaCasosContainer" class="tabela-completa">
+                    <!-- Carregado dinamicamente -->
+                </div>
+            </section>
+
+            <!-- SEÇÃO: CLIENTES -->
+            <section id="abaClientes" class="aba-dashboard">
+                <div class="secao-titulo">
+                    <h2>Clientes</h2>
+                    <button class="botao-novo-caso" onclick="abrirNovoCliente()">
+                        <i data-lucide="user-plus"></i>
+                        Novo Cliente
+                    </button>
+                </div>
+
+                <div id="tabelaClientesContainer" class="tabela-completa">
+                    <!-- Carregado dinamicamente -->
+                </div>
+            </section>
+
+            <!-- SEÇÃO: DOCUMENTOS -->
+            <section id="abaDocumentos" class="aba-dashboard">
+                <div class="secao-titulo">
+                    <h2>Documentos</h2>
+                    <button class="botao-novo-caso" onclick="abrirUploadDocumento()">
+                        <i data-lucide="upload"></i>
+                        Enviar Documento
+                    </button>
+                </div>
+
+                <div id="tabelaDocumentosContainer" class="tabela-completa">
+                    <!-- Carregado dinamicamente -->
+                </div>
+            </section>
+
+            <!-- SEÇÃO: AGENDA -->
+            <section id="abaAgenda" class="aba-dashboard">
+                <div class="secao-titulo">
+                    <h2>Agenda</h2>
+                </div>
+
+                <div class="calendario-agenda">
+                    <div id="calendarioContainer">
+                        <!-- Carregado dinamicamente -->
+                    </div>
+                    <div id="eventosDiaContainer" class="eventos-dia">
+                        <!-- Carregado dinamicamente -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEÇÃO: RELATÓRIOS -->
+            <section id="abaRelatorios" class="aba-dashboard">
+                <div class="secao-titulo">
+                    <h2>Relatórios</h2>
+                </div>
+
+                <div class="grid-relatorios">
+                    <div class="card-relatorio">
+                        <h3>Casos por Status</h3>
+                        <div id="graficoStatus" class="grafico-placeholder">
+                            <!-- Carregado dinamicamente -->
+                        </div>
+                    </div>
+
+                    <div class="card-relatorio">
+                        <h3>Áreas Mais Utilizadas</h3>
+                        <div id="graficoAreas" class="grafico-placeholder">
+                            <!-- Carregado dinamicamente -->
+                        </div>
+                    </div>
+
+                    <div class="card-relatorio">
+                        <h3>Taxa de Sucesso</h3>
+                        <div id="graficoPorcentagem" class="grafico-placeholder">
+                            <!-- Carregado dinamicamente -->
+                        </div>
+                    </div>
+
+                    <div class="card-relatorio">
+                        <h3>Atividade Mensal</h3>
+                        <div id="graficoAtividade" class="grafico-placeholder">
+                            <!-- Carregado dinamicamente -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- MODAL DE NOVO CASO -->
+    <div id="modalNovoCaso" class="modal-dashboard">
+        <div class="modal-conteudo">
+            <div class="modal-header">
+                <h2>Novo Caso</h2>
+                <button class="botao-fechar-modal" onclick="fecharModal('modalNovoCaso')">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <form id="formNovoCaso" class="formulario-modal">
+                <div class="form-row-modal">
+                    <div class="form-group">
+                        <label>Cliente *</label>
+                        <select name="clienteId" required>
+                            <option value="">Selecione um cliente</option>
+                            <!-- Carregado dinamicamente -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Número do Caso *</label>
+                        <input type="text" name="numeroCaso" placeholder="Ex: 0001234-56.2025.1.23.0000" required>
+                    </div>
+                </div>
+
+                <div class="form-row-modal">
+                    <div class="form-group">
+                        <label>Tipo de Caso *</label>
+                        <select name="tipoSelecionado" required>
+                            <option value="">Selecione um tipo</option>
+                            <option value="trabalhista">Trabalhista</option>
+                            <option value="imobiliario">Imobiliário</option>
+                            <option value="familia">Família</option>
+                            <option value="empresarial">Empresarial</option>
+                            <option value="civil">Civil</option>
+                            <option value="tributario">Tributário</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Foro *</label>
+                        <input type="text" name="foro" placeholder="Ex: 1ª Vara Cível" required>
+                    </div>
+                </div>
+
+                <div class="form-row-modal">
+                    <div class="form-group">
+                        <label>Data de Início *</label>
+                        <input type="date" name="dataInicio" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Status *</label>
+                        <select name="status" required>
+                            <option value="andamento">Em Andamento</option>
+                            <option value="pendente">Pendente</option>
+                            <option value="pausado">Pausado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Descrição do Caso</label>
+                    <textarea name="descricao" rows="4" placeholder="Descreva brevemente o caso..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Valor da Causa</label>
+                    <input type="number" name="valorCausa" placeholder="R$ 0,00" step="0.01">
+                </div>
+
+                <div class="modal-botoes">
+                    <button type="submit" class="botao-salvar">
+                        <i data-lucide="save"></i>
+                        Salvar Caso
+                    </button>
+                    <button type="button" class="botao-cancelar" onclick="fecharModal('modalNovoCaso')">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="scripts/api-local.js"></script>
+    <script src="scripts/painel-controle.js"></script>
+</body>
+</html>
+
+

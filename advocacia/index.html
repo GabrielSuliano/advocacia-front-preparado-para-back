@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advocacia Premium - Excelência Jurídica</title>
+    <link rel="stylesheet" href="estilos/index.css">
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- CABEÇALHO -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo" onclick="rolarParaSecao('home')">
+                    <div class="logo-icon">
+                        <i data-lucide="scale"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Advocacia Premium</h1>
+                        <p>Excelência Jurídica</p>
+                    </div>
+                </div>
+
+                <!-- Menu Desktop -->
+                <nav class="nav-desktop">
+                    <button onclick="rolarParaSecao('home')">Início</button>
+                    <button onclick="rolarParaSecao('sobre')">Sobre</button>
+                    <button onclick="rolarParaSecao('areas')">Áreas de Atuação</button>
+                    <button onclick="rolarParaSecao('equipe')">Equipe</button>
+                    <button onclick="rolarParaSecao('contato')" class="btn-contato">Contato</button>
+                    <button onclick="window.location.href='autenticacao.html'" class="btn-login">
+                        <i data-lucide="log-in"></i>
+                        Acessar
+                    </button>
+                </nav>
+
+                <!-- Botão Menu Mobile -->
+                <button class="menu-mobile-btn" onclick="toggleMenuMobile()">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                    <i data-lucide="x" id="close-icon" style="display: none;"></i>
+                </button>
+            </div>
+
+            <!-- Menu Mobile -->
+            <div class="nav-mobile" id="nav-mobile">
+                <button onclick="rolarParaSecao('home')">Início</button>
+                <button onclick="rolarParaSecao('sobre')">Sobre</button>
+                <button onclick="rolarParaSecao('areas')">Áreas de Atuação</button>
+                <button onclick="rolarParaSecao('equipe')">Equipe</button>
+                <button onclick="rolarParaSecao('contato')" class="btn-contato-mobile">Contato</button>
+                <button onclick="window.location.href='autenticacao.html'" class="btn-login-mobile">
+                    <i data-lucide="log-in"></i>
+                    Acessar
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Defendendo Seus Direitos
+                <span class="hero-subtitle">Com Excelência</span>
+            </h1>
+            <p class="hero-text">
+                Mais de 25 anos de experiência oferecendo soluções jurídicas completas e personalizadas
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="rolarParaSecao('contato')">
+                    Agende uma Consulta
+                </button>
+                <button class="btn-secondary" onclick="rolarParaSecao('areas')">
+                    Conheça Nossas Áreas
+                </button>
+            </div>
+        </div>
+        <button class="scroll-indicator" onclick="rolarParaSecao('sobre')">
+            <i data-lucide="chevron-down"></i>
+        </button>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <div class="sobre-grid">
+                <!-- Imagem -->
+                <div class="sobre-imagem">
+                    <img src="https://images.unsplash.com/photo-1758310999515-645097b709db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXclMjBvZmZpY2UlMjBidWlsZGluZyUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3Njk3NTEzOTV8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Escritório">
+                    <div class="sobre-badge">
+                        <p class="badge-number">25+</p>
+                        <p class="badge-text">Anos de Excelência</p>
+                    </div>
+                </div>
+
+                <!-- Conteúdo -->
+                <div class="sobre-conteudo">
+                    <h2>Sobre Nosso Escritório</h2>
+                    <p>
+                        Somos um escritório de advocacia dedicado a oferecer serviços jurídicos de excelência, 
+                        combinando expertise técnica, compromisso ético e atendimento personalizado.
+                    </p>
+                    <p>
+                        Nossa equipe é formada por profissionais altamente qualificados e especializados em 
+                        diversas áreas do direito, prontos para defender seus interesses com dedicação e 
+                        competência.
+                    </p>
+
+                    <!-- Estatísticas -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i data-lucide="award"></i>
+                            <p class="stat-number">25+</p>
+                            <p class="stat-label">Anos de Experiência</p>
+                        </div>
+                        <div class="stat-card">
+                            <i data-lucide="users"></i>
+                            <p class="stat-number">5000+</p>
+                            <p class="stat-label">Clientes Atendidos</p>
+                        </div>
+                        <div class="stat-card">
+                            <i data-lucide="scale"></i>
+                            <p class="stat-number">98%</p>
+                            <p class="stat-label">Casos Vencidos</p>
+                        </div>
+                        <div class="stat-card">
+                            <i data-lucide="trending-up"></i>
+                            <p class="stat-number">100%</p>
+                            <p class="stat-label">Dedicação</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÁREAS DE ATUAÇÃO -->
+    <section id="areas" class="areas">
+        <div class="container">
+            <div class="section-header">
+                <h2>Áreas de Atuação</h2>
+                <p>Oferecemos serviços especializados em diversas áreas do direito para atender todas as suas necessidades jurídicas</p>
+            </div>
+
+            <div class="areas-grid">
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i data-lucide="briefcase"></i>
+                    </div>
+                    <h3>Direito Trabalhista</h3>
+                    <p>Defesa de direitos trabalhistas, rescisões, processos judiciais e acordos.</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i data-lucide="home"></i>
+                    </div>
+                    <h3>Direito Imobiliário</h3>
+                    <p>Contratos, regularização, usucapião e disputas relacionadas a imóveis.</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i data-lucide="users-2"></i>
+                    </div>
+                    <h3>Direito de Família</h3>
+                    <p>Divórcios, pensão alimentícia, guarda de filhos e inventários.</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i data-lucide="building-2"></i>
+                    </div>
+                    <h3>Direito Empresarial</h3>
+                    <p>Constituição de empresas, contratos comerciais e consultoria jurídica.</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i data-lucide="file-text"></i>
+                    </div>
+                    <h3>Direito Civil</h3>
+                    <p>Contratos, indenizações, responsabilidade civil e ações diversas.</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i data-lucide="dollar-sign"></i>
+                    </div>
+                    <h3>Direito Tributário</h3>
+                    <p>Planejamento tributário, contestações e recuperação de impostos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPE -->
+    <section id="equipe" class="equipe">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nossa Equipe</h2>
+                <p>Profissionais altamente qualificados e dedicados a oferecer o melhor serviço jurídico</p>
+            </div>
+
+            <div class="equipe-grid">
+                <div class="membro-card">
+                    <div class="membro-imagem">
+                        <img src="https://images.unsplash.com/photo-1736939681295-bb2e6759dddc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXd5ZXIlMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3Njk2NTQ2MDh8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Dr. Carlos Eduardo Silva">
+                        <div class="membro-social">
+                            <button><i data-lucide="linkedin"></i></button>
+                            <button><i data-lucide="mail"></i></button>
+                        </div>
+                    </div>
+                    <div class="membro-info">
+                        <h3>Dr. Carlos Eduardo Silva</h3>
+                        <p class="membro-cargo">Direito Empresarial</p>
+                        <p class="membro-desc">Especialista em direito empresarial com mais de 20 anos de experiência.</p>
+                    </div>
+                </div>
+
+                <div class="membro-card">
+                    <div class="membro-imagem">
+                        <img src="https://images.unsplash.com/photo-1758518731462-d091b0b4ed0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmZW1hbGUlMjBsYXd5ZXIlMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzY5NzE4NzgzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Dra. Maria Fernanda Costa">
+                        <div class="membro-social">
+                            <button><i data-lucide="linkedin"></i></button>
+                            <button><i data-lucide="mail"></i></button>
+                        </div>
+                    </div>
+                    <div class="membro-info">
+                        <h3>Dra. Maria Fernanda Costa</h3>
+                        <p class="membro-cargo">Direito de Família</p>
+                        <p class="membro-desc">Dedicada ao direito de família, com foco em soluções humanizadas.</p>
+                    </div>
+                </div>
+
+                <div class="membro-card">
+                    <div class="membro-imagem">
+                        <img src="https://images.unsplash.com/photo-1758518731462-d091b0b4ed0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMG1lZXRpbmclMjBsYXd5ZXJ8ZW58MXx8fHwxNzY5NzUxMzk2fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Dr. Roberto Almeida">
+                        <div class="membro-social">
+                            <button><i data-lucide="linkedin"></i></button>
+                            <button><i data-lucide="mail"></i></button>
+                        </div>
+                    </div>
+                    <div class="membro-info">
+                        <h3>Dr. Roberto Almeida</h3>
+                        <p class="membro-cargo">Direito Trabalhista</p>
+                        <p class="membro-desc">Especialista em causas trabalhistas e defesa de direitos dos trabalhadores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="depoimentos">
+        <div class="container">
+            <div class="section-header-white">
+                <h2>O Que Nossos Clientes Dizem</h2>
+                <p>A satisfação dos nossos clientes é nossa maior conquista</p>
+            </div>
+
+            <div class="depoimentos-grid">
+                <div class="depoimento-card">
+                    <i data-lucide="quote" class="quote-icon"></i>
+                    <div class="estrelas">
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                    </div>
+                    <p class="depoimento-texto">
+                        "Excelente atendimento! Resolveram meu caso empresarial com muita competência e profissionalismo. Recomendo fortemente!"
+                    </p>
+                    <div class="depoimento-autor">
+                        <p class="autor-nome">João Pedro Santos</p>
+                        <p class="autor-cargo">Empresário</p>
+                    </div>
+                </div>
+
+                <div class="depoimento-card">
+                    <i data-lucide="quote" class="quote-icon"></i>
+                    <div class="estrelas">
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                    </div>
+                    <p class="depoimento-texto">
+                        "Equipe muito atenciosa e dedicada. Me senti muito segura durante todo o processo do meu divórcio. Gratidão!"
+                    </p>
+                    <div class="depoimento-autor">
+                        <p class="autor-nome">Ana Carolina Oliveira</p>
+                        <p class="autor-cargo">Professora</p>
+                    </div>
+                </div>
+
+                <div class="depoimento-card">
+                    <i data-lucide="quote" class="quote-icon"></i>
+                    <div class="estrelas">
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                    </div>
+                    <p class="depoimento-texto">
+                        "Profissionais extremamente qualificados. Conseguiram reverter uma situação que parecia impossível. Muito obrigado!"
+                    </p>
+                    <div class="depoimento-autor">
+                        <p class="autor-nome">Ricardo Mendes</p>
+                        <p class="autor-cargo">Engenheiro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="contato">
+        <div class="container">
+            <div class="section-header">
+                <h2>Entre em Contato</h2>
+                <p>Estamos prontos para ajudar você. Agende uma consulta e receba orientação jurídica especializada</p>
+            </div>
+
+            <div class="contato-grid">
+                <!-- Informações de Contato -->
+                <div class="contato-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <div>
+                            <h3>Endereço</h3>
+                            <p>Av. Paulista, 1500 - São Paulo, SP</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i data-lucide="phone"></i>
+                        </div>
+                        <div>
+                            <h3>Telefone</h3>
+                            <p>(11) 3456-7890</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i data-lucide="mail"></i>
+                        </div>
+                        <div>
+                            <h3>E-mail</h3>
+                            <p>contato@advocaciapremium.com.br</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i data-lucide="clock"></i>
+                        </div>
+                        <div>
+                            <h3>Horário</h3>
+                            <p>Seg - Sex: 9h às 18h</p>
+                        </div>
+                    </div>
+
+                    <div class="consulta-gratuita">
+                        <h3>Consulta Gratuita</h3>
+                        <p>Agende agora uma consulta inicial gratuita para avaliarmos seu caso.</p>
+                        <button class="btn-agendar">Agendar Agora</button>
+                    </div>
+                </div>
+
+                <!-- Formulário -->
+                <div class="contato-form">
+                    <form id="form-contato">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nome Completo *</label>
+                                <input type="text" name="nome" placeholder="Seu nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label>E-mail *</label>
+                                <input type="email" name="email" placeholder="seu@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Telefone *</label>
+                                <input type="tel" name="telefone" placeholder="(11) 99999-9999" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Assunto *</label>
+                                <select name="assunto" required>
+                                    <option value="">Selecione uma área</option>
+                                    <option value="trabalhista">Direito Trabalhista</option>
+                                    <option value="imobiliario">Direito Imobiliário</option>
+                                    <option value="familia">Direito de Família</option>
+                                    <option value="empresarial">Direito Empresarial</option>
+                                    <option value="civil">Direito Civil</option>
+                                    <option value="tributario">Direito Tributário</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mensagem *</label>
+                            <textarea name="mensagem" rows="6" placeholder="Descreva brevemente seu caso..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-enviar">
+                            <i data-lucide="send"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <i data-lucide="scale"></i>
+                        </div>
+                        <div>
+                            <h3>Advocacia Premium</h3>
+                            <p>Excelência Jurídica</p>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        Defendendo seus direitos com dedicação e competência há mais de 25 anos.
+                    </p>
+                    <div class="footer-social">
+                        <button><i data-lucide="facebook"></i></button>
+                        <button><i data-lucide="instagram"></i></button>
+                        <button><i data-lucide="linkedin"></i></button>
+                        <button><i data-lucide="twitter"></i></button>
+                    </div>
+                </div>
+
+                <!-- Links Rápidos -->
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#areas">Áreas de Atuação</a></li>
+                        <li><a href="#equipe">Equipe</a></li>
+                    </ul>
+                </div>
+
+                <!-- Áreas -->
+                <div class="footer-links">
+                    <h4>Áreas de Atuação</h4>
+                    <ul>
+                        <li><a href="#">Direito Trabalhista</a></li>
+                        <li><a href="#">Direito Imobiliário</a></li>
+                        <li><a href="#">Direito de Família</a></li>
+                        <li><a href="#">Direito Empresarial</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contato -->
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul class="footer-contato">
+                        <li>Av. Paulista, 1500</li>
+                        <li>São Paulo - SP</li>
+                        <li>(11) 3456-7890</li>
+                        <li>contato@advocaciapremium.com.br</li>
+                        <li>Seg - Sex: 9h às 18h</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p>© 2026 Advocacia Premium. Todos os direitos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
+

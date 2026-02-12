@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Casos - Advocacia Premium</title>
+    <link rel="stylesheet" href="estilos/meus-casos.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="body-casos">
+    <!-- HEADER SIMPLIFICADO -->
+    <header class="header-casos">
+        <div class="container">
+            <div class="logo-casos" onclick="redirecionarParaHome()">
+                <div class="logo-icon">
+                    <i data-lucide="scale"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Meus Casos</h1>
+                </div>
+            </div>
+
+            <nav class="nav-casos">
+                <button onclick="redirecionarParaDashboard()">Voltar ao Dashboard</button>
+                <button onclick="fazerLogout()" class="botao-logout-header">
+                    <i data-lucide="log-out"></i>
+                    Sair
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <main class="container-casos">
+        <div class="secao-titulo">
+            <h2>Acompanhamento de Casos</h2>
+            <button class="botao-novo-caso" onclick="abrirNovoCase()">
+                <i data-lucide="plus"></i>
+                Novo Caso
+            </button>
+        </div>
+
+        <!-- FILTROS -->
+        <div class="filtros-casos">
+            <div class="grupo-filtro">
+                <label>Status</label>
+                <select id="filtroStatusCasos" onchange="aplicarFiltrosCasos()">
+                    <option value="">Todos</option>
+                    <option value="andamento">Em Andamento</option>
+                    <option value="pendente">Pendente</option>
+                    <option value="pausado">Pausado</option>
+                    <option value="finalizado">Finalizado</option>
+                </select>
+            </div>
+            <div class="grupo-filtro">
+                <label>Área de Atuação</label>
+                <select id="filtroAreaCasos" onchange="aplicarFiltrosCasos()">
+                    <option value="">Todas</option>
+                    <option value="trabalhista">Trabalhista</option>
+                    <option value="imobiliario">Imobiliário</option>
+                    <option value="familia">Família</option>
+                    <option value="empresarial">Empresarial</option>
+                    <option value="civil">Civil</option>
+                    <option value="tributario">Tributário</option>
+                </select>
+            </div>
+            <div class="grupo-filtro">
+                <label>Cliente</label>
+                <input type="text" id="filtroClienteCasos" placeholder="Buscar cliente..." onkeyup="aplicarFiltrosCasos()">
+            </div>
+            <div class="grupo-filtro">
+                <label>Número do Caso</label>
+                <input type="text" id="filtroCasoCasos" placeholder="Buscar número..." onkeyup="aplicarFiltrosCasos()">
+            </div>
+        </div>
+
+        <!-- VISUALIZAÇÃO DE CASOS -->
+        <div class="opcoes-visualizacao">
+            <button class="botao-visualizacao ativo" onclick="mudarVisualizacao('tabela')">
+                <i data-lucide="list"></i>
+                Tabela
+            </button>
+            <button class="botao-visualizacao" onclick="mudarVisualizacao('cards')">
+                <i data-lucide="grid"></i>
+                Cards
+            </button>
+        </div>
+
+        <!-- TABELA DE CASOS -->
+        <div id="tabelaCasosGrande" class="tabela-casos-grande">
+            <!-- Carregado dinamicamente -->
+        </div>
+
+        <!-- CARDS DE CASOS -->
+        <div id="cardsCasosContainer" class="grid-casos-cards" style="display: none;">
+            <!-- Carregado dinamicamente -->
+        </div>
+    </main>
+
+    <!-- MODAL DETALHES DO CASO -->
+    <div id="modalDetalhesCaso" class="modal-dashboard">
+        <div class="modal-conteudo modal-grande">
+            <div class="modal-header">
+                <h2 id="tituloDetalhes">Detalhes do Caso</h2>
+                <button class="botao-fechar-modal" onclick="fecharModalCaso()">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="grid-detalhes-caso">
+                    <!-- INFORMAÇÕES PRINCIPAIS -->
+                    <div class="secao-detalhes">
+                        <h3>Informações do Caso</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>Número do Caso</label>
+                                <p id="numeroCasoDetalhes">-</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Status</label>
+                                <p id="statusDetalhes">-</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Área de Atuação</label>
+                                <p id="areaDetalhes">-</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Cliente</label>
+                                <p id="clienteDetalhes">-</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Foro</label>
+                                <p id="foroDetalhes">-</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Valor da Causa</label>
+                                <p id="valorDetalhes">-</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Data de Início</label>
+                                <p id="dataInicioDetalhes">-</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Data de Término</label>
+                                <p id="dataTerminoDetalhes">-</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DESCRIÇÃO -->
+                    <div class="secao-detalhes">
+                        <h3>Descrição do Caso</h3>
+                        <p id="descricaoCasoDetalhes">-</p>
+                    </div>
+
+                    <!-- MOVIMENTAÇÕES -->
+                    <div class="secao-detalhes">
+                        <h3>Histórico e Movimentações</h3>
+                        <div id="historicoDetalhes" class="timeline-historico">
+                            <!-- Carregado dinamicamente -->
+                        </div>
+                    </div>
+
+                    <!-- DOCUMENTOS -->
+                    <div class="secao-detalhes">
+                        <h3>Documentos Anexados</h3>
+                        <div id="documentosCasoDetalhes" class="lista-documentos">
+                            <!-- Carregado dinamicamente -->
+                        </div>
+                    </div>
+
+                    <!-- OBSERVAÇÕES -->
+                    <div class="secao-detalhes">
+                        <h3>Observações Internas</h3>
+                        <textarea id="observacoesCaso" class="textarea-observacoes" placeholder="Adicione observações sobre este caso..." rows="4"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-botoes">
+                <button class="botao-editar" onclick="editarCaso()">
+                    <i data-lucide="edit"></i>
+                    Editar
+                </button>
+                <button class="botao-exportar" onclick="exportarCaso()">
+                    <i data-lucide="download"></i>
+                    Exportar
+                </button>
+                <button type="button" class="botao-cancelar" onclick="fecharModalCaso()">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RODAPÉ SIMPLIFICADO -->
+    <footer class="footer-casos">
+        <p>&copy; 2026 Advocacia Premium. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="scripts/api-local.js"></script>
+    <script src="scripts/meus-casos.js"></script>
+</body>
+</html>
+
+

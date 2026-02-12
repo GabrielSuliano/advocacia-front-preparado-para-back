@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nossa Empresa - Advocacia Premium</title>
+    <link rel="stylesheet" href="estilos/sobre-empresa.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- CABEÇALHO -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" onclick="rolarParaSecao('home')">
+                    <div class="logo-icon">
+                        <i data-lucide="scale"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Advocacia Premium</h1>
+                        <p>Excelência Jurídica</p>
+                    </div>
+                </div>
+
+                <nav class="nav-desktop">
+                    <button onclick="window.location.href='index.html'">Início</button>
+                    <button onclick="window.location.href='sobre-empresa.html'" class="ativo">Sobre</button>
+                    <button onclick="window.location.href='index.html#areas'">Áreas de Atuação</button>
+                    <button onclick="window.location.href='index.html#equipe'">Equipe</button>
+                    <button onclick="window.location.href='index.html#contato'" class="btn-contato">Contato</button>
+                </nav>
+
+                <button class="menu-mobile-btn" onclick="toggleMenuMobile()">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                    <i data-lucide="x" id="close-icon" style="display: none;"></i>
+                </button>
+            </div>
+
+            <div class="nav-mobile" id="nav-mobile">
+                <button onclick="window.location.href='index.html'">Início</button>
+                <button onclick="window.location.href='sobre-empresa.html'">Sobre</button>
+                <button onclick="window.location.href='index.html#areas'">Áreas de Atuação</button>
+                <button onclick="window.location.href='index.html#equipe'">Equipe</button>
+                <button onclick="window.location.href='index.html#contato'" class="btn-contato-mobile">Contato</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" style="height: 50vh;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Sobre a Advocacia Premium
+                <span class="hero-subtitle">Conheça Nossa História</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <section class="container" style="padding: 80px 0;">
+        <!-- MISSÃO, VISÃO E VALORES -->
+        <div class="grid-mvv">
+            <div class="card-mvv">
+                <div class="icon-mvv">
+                    <i data-lucide="target"></i>
+                </div>
+                <h3>Nossa Missão</h3>
+                <p>Oferecer serviços jurídicos de excelência, combinando expertise técnica, compromisso ético e atendimento personalizado para defender os direitos de nossos clientes.</p>
+            </div>
+
+            <div class="card-mvv">
+                <div class="icon-mvv">
+                    <i data-lucide="eye"></i>
+                </div>
+                <h3>Nossa Visão</h3>
+                <p>Ser reconhecida como um escritório de advocacia de referência no Brasil, conhecido pela qualidade de seus serviços e pela dedicação aos clientes.</p>
+            </div>
+
+            <div class="card-mvv">
+                <div class="icon-mvv">
+                    <i data-lucide="heart"></i>
+                </div>
+                <h3>Nossos Valores</h3>
+                <p>Ética profissional, integridade, comprometimento com a excelência e respeito aos direitos e dignidade de todas as pessoas.</p>
+            </div>
+        </div>
+
+        <!-- HISTÓRIA -->
+        <section style="margin-top: 80px;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 32px; text-align: center;">Nossa História</h2>
+            
+            <div class="timeline-historia">
+                <div class="evento-historia">
+                    <div class="data-evento">2000</div>
+                    <div class="conteudo-evento">
+                        <h3>Fundação</h3>
+                        <p>Advocacia Premium foi fundada com o objetivo de oferecer serviços jurídicos de qualidade superior a empresas e pessoas físicas.</p>
+                    </div>
+                </div>
+
+                <div class="evento-historia">
+                    <div class="data-evento">2008</div>
+                    <div class="conteudo-evento">
+                        <h3>Expansão Regional</h3>
+                        <p>Abriu seus primeiros escritórios em outras regiões, ampliando sua atuação e conquistando novos clientes.</p>
+                    </div>
+                </div>
+
+                <div class="evento-historia">
+                    <div class="data-evento">2015</div>
+                    <div class="conteudo-evento">
+                        <h3>Inovação Tecnológica</h3>
+                        <p>Implementou sistemas de gestão modernos e começou a oferecer serviços de consultoria especializada em diferentes áreas.</p>
+                    </div>
+                </div>
+
+                <div class="evento-historia">
+                    <div class="data-evento">2020</div>
+                    <div class="conteudo-evento">
+                        <h3>Transformação Digital</h3>
+                        <p>Lançou plataforma digital para atendimento remoto, ampliando alcance e facilitando acesso aos serviços jurídicos.</p>
+                    </div>
+                </div>
+
+                <div class="evento-historia">
+                    <div class="data-evento">Presente</div>
+                    <div class="conteudo-evento">
+                        <h3>Liderança de Mercado</h3>
+                        <p>Consolidada como uma das principais referências em serviços jurídicos, com mais de 5000 clientes atendidos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPROMISSO -->
+        <section style="margin-top: 80px; background: #f9fafb; padding: 60px; border-radius: 16px;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 32px;">Nosso Compromisso</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+                <div>
+                    <h3 style="color: var(--cor-primaria); margin-bottom: 16px;">Com Nossos Clientes</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px;">✓ Atendimento personalizado e dedicado</li>
+                        <li style="margin-bottom: 12px;">✓ Comunicação clara e transparente</li>
+                        <li style="margin-bottom: 12px;">✓ Soluções eficientes e inovadoras</li>
+                        <li style="margin-bottom: 12px;">✓ Sigilo profissional garantido</li>
+                        <li style="margin-bottom: 12px;">✓ Resultados comprovados</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="color: var(--cor-primaria); margin-bottom: 16px;">Com a Justiça</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px;">✓ Ética profissional irrepreensível</li>
+                        <li style="margin-bottom: 12px;">✓ Conformidade com a legislação</li>
+                        <li style="margin-bottom: 12px;">✓ Respeito aos prazos processuais</li>
+                        <li style="margin-bottom: 12px;">✓ Integridade nas relações institucionais</li>
+                        <li style="margin-bottom: 12px;">✓ Defesa imparcial dos direitos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <i data-lucide="scale"></i>
+                        </div>
+                        <div>
+                            <h3>Advocacia Premium</h3>
+                            <p>Excelência Jurídica</p>
+                        </div>
+                    </div>
+                    <p class="footer-desc">Defendendo seus direitos com dedicação e competência.</p>
+                    <div class="footer-social">
+                        <button><i data-lucide="facebook"></i></button>
+                        <button><i data-lucide="instagram"></i></button>
+                        <button><i data-lucide="linkedin"></i></button>
+                        <button><i data-lucide="twitter"></i></button>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre-empresa.html">Sobre</a></li>
+                        <li><a href="index.html#areas">Áreas de Atuação</a></li>
+                        <li><a href="index.html#equipe">Equipe</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="politica-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="termos-uso.html">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul class="footer-contato">
+                        <li>Av. Paulista, 1500</li>
+                        <li>São Paulo - SP</li>
+                        <li>(11) 3456-7890</li>
+                        <li>contato@advocaciapremium.com.br</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Advocacia Premium. Todos os direitos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="politica-privacidade.html">Política de Privacidade</a>
+                    <a href="termos-uso.html">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
+
+
