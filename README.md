@@ -1,6 +1,6 @@
 # Advocacia Front
 
-Frontend completo para um escritorio de advocacia, preparado para integracao com backend. O projeto inclui paginas publicas, area autenticada, painel de controle, gestao de casos e uma API local simulada com `localStorage`.
+Protótipo de frontend para um escritorio de advocacia, preparado para integracao com backend. O projeto inclui paginas publicas, area autenticada, painel de controle, gestao de casos e uma API local simulada com `localStorage`.
 
 O codigo principal esta em:
 
@@ -47,12 +47,7 @@ advocacia/
 
 Abra `advocacia/index.html` no navegador ou use Live Server no VS Code.
 
-Para acessar a area autenticada, use o usuario mock criado pelo projeto:
-
-```text
-admin@advocaciapremium.com.br
-12345678
-```
+A área de demonstração usa dados locais; cadastre usuário fictício no protótipo.
 
 ## Integracao com backend
 
@@ -79,4 +74,16 @@ PUT  /clientes/:id
 
 ## Status
 
-Frontend funcional, pronto para apresentacao e preparado para receber backend em PHP, Node.js ou outra stack.
+Protótipo de frontend com persistência simulada; integração de backend é trabalho futuro.
+
+## Fluxo real e segurança
+
+As páginas chamam funções globais de `advocacia/scripts/api-local.js`. Usuários, sessão, clientes, casos e audiências são dados simulados no navegador. Não há controllers de servidor, banco ou endpoints HTTP implementados. As rotas da seção de integração são **propostas futuras**.
+
+A proteção das páginas é uma verificação JavaScript; o visitante pode ler/alterar o localStorage. Não use dados reais de clientes ou interprete o login como autenticação segura. O cadastro permite criar usuário fictício local para explorar a interface; credenciais fixas não são reproduzidas aqui.
+
+Com Python instalado, uma opção para origem consistente é `python -m http.server 8000 --bind 127.0.0.1 --directory advocacia`; abra `http://127.0.0.1:8000/`. Não há dependências npm, build, `.env` ou migrations. Recursos CDN referenciados pelo HTML dependem de rede.
+
+## Testes e evolução
+
+Não há testes automatizados ou deploy confirmado. Prioridades: especificar contrato a partir das funções locais, implementar autenticação/persistência no servidor e testar antes de receber dados reais. O README interno distingue simulação de arquitetura proposta. Não há LICENSE; a indicação de uso exclusivo no README interno deve ser esclarecida pelo titular antes de redistribuição.

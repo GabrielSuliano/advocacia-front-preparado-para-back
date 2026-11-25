@@ -14,12 +14,12 @@ advocacia/
 ├── autenticacao.html             # Login e cadastro (admin)
 ├── painel-controle.html          # Dashboard do advogado
 ├── meus-casos.html               # Gerenciamento de casos
-├── style.css                     # Estilos principais
-├── estilo-novo.css               # Estilos das páginas de admin
-├── script.js                     # Scripts da página pública
-├── autenticacao.js               # Lógica de login
-├── painel-controle.js            # Lógica do dashboard
-└── meus-casos.js                 # Lógica de casos
+├── estilos/style.css                     # Estilos principais
+├── estilos/estilo-novo.css               # Estilos das páginas de admin
+├── scripts/script.js                     # Scripts da página pública
+├── scripts/autenticacao.js               # Lógica de login
+├── scripts/painel-controle.js            # Lógica do dashboard
+└── scripts/meus-casos.js                 # Lógica de casos
 ```
 
 ---
@@ -63,7 +63,9 @@ Edite os seguintes elementos nos arquivos HTML:
 
 ## 🔌 Integração com Backend
 
-### Estrutura de Dados Esperada
+### Proposta futura de dados e endpoints
+
+Não há API HTTP implementada. O runtime usa `scripts/api-local.js`; os exemplos abaixo são propostas futuras.
 
 O código está preparado para trabalhar com qualquer backend. Para integrar, você precisará fazer requisições HTTP para:
 
@@ -132,7 +134,7 @@ O código está preparado para trabalhar com qualquer backend. Para integrar, vo
 
 ### Exemplo de Requisição
 
-Em `autenticacao.js`, você verá chamadas como:
+Uma integração futura poderia substituir as funções locais por chamadas como:
 
 ```javascript
 fetch('/login', {
@@ -148,7 +150,7 @@ Configure a URL base conforme necessário.
 
 ## 🔧 O que o backend precisa fazer (PHP ou Node)
 
-O frontend já espera uma API REST com os endpoints listados acima. Seu amigo pode escolher PHP ou Node, mas precisa garantir:
+Uma integração futura pode usar PHP ou Node e deverá implementar os endpoints propostos, adaptando as funções locais atuais:
 
 - Respostas em JSON consistentes (status HTTP corretos).
 - Autenticação por sessão ou token (JWT).
@@ -236,7 +238,7 @@ O site é totalmente responsivo para:
 ### Frontend
 - Validações básicas em formulários
 - Verificação de autenticação antes de páginas privadas
-- Armazenamento seguro de tokens (localStorage)
+- Persistência simulada em localStorage; não é armazenamento seguro de credenciais.
 
 ### Backend (Sua Responsabilidade)
 - Usar HTTPS/SSL em produção
@@ -295,4 +297,3 @@ Para dúvidas sobre o site:
 - Revise os comentários no código
 
 **Última atualização:** Janeiro de 2026
-
